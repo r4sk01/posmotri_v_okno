@@ -80,7 +80,8 @@
     </main>
 
     <!-- ТЕМПЛЕЙТЫ -->
-
+    <!-- Шаблон прелоадера — пока данные загружаются, мы создаём экземпляры прелоадера и вставляем в зоны, -->
+    <!-- Куда будет вставлен контент. Когда контент готов, мы убираем прелоадеры.-->
     <template class="preloader-template">
       <div class="preloader">
         <div class="preloader-chasing-squares">
@@ -92,6 +93,8 @@
       </div>
     </template>
 
+    <!-- Шаблон пункта списка с карточкой видео — в него мы подставляем данные и создаём столько карточек на странице, -->
+    <!-- Сколько нужно, добавляя их в список.-->
     <template class="cards-list-item-template">
       <li class="content__list-item">
         <a href="#0" class="content__card-link">
@@ -105,15 +108,23 @@
         </a>
       </li>
     </template>
+
+
+    <!-- Шаблон кнопки «Показать ещё» — мы подставляем эту кнопку в конец списка карточек каждый раз, -->
+    <!-- Когда доступны дополнительные видео. Нажатие на эту кнопку подгружает пять дополнительных карточек.-->
     <template class="more-button-template">
       <li><button class="button more-button">Показать еще</button></li>
     </template>
 
+
+    <!-- Шаблон блока с ошибкой — в зависимости от типа ошибки, мы выбираем текст для неё, -->
+    <!-- Создаём экземпляр шаблона с текстом и вставляем на страницу.-->
     <template class="error-template">
       <div class="error">
         <h2 class="error__title"></h2>
       </div>
     </template>
+
     <script src="./scripts/script.js"></script>
   </body>
 </html>
