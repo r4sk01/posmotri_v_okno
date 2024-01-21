@@ -138,7 +138,9 @@ ol {
   font-weight: 400;
   line-height: normal;
   min-width: 225px;
+  min-height: 27px;
   padding: 1px 0;
+  /*margin: 1px;*/
   appearance: none;
 }
 
@@ -295,6 +297,21 @@ ol {
   width: 100%;
   padding: 5px;
 }
+
+/* 4.0 Состояния элементов формы и кнопок */
+
+/* 4.1 Текстовое поле ввода */
+
+.search-form__textfield:focus {
+  outline: none;
+}
+
+.search-form__label:has(.search-form__textfield:focus-visible) {
+  outline: 1px solid #fff;
+  outline-offset: 1px;
+}
+
+/* 4.2 Текстовое поле ввода */
 
 /* X. Скрывающий Класс для Работы с Формами */
 
