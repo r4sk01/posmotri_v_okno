@@ -140,7 +140,6 @@ ol {
   min-width: 225px;
   min-height: 27px;
   padding: 1px 0;
-  /*margin: 1px;*/
   appearance: none;
 }
 
@@ -301,7 +300,7 @@ ol {
 
 /* 4.0 Состояния элементов формы и кнопок */
 
-/* 4.1 Текстовое поле ввода */
+/* 4.1 Focus for Text Input, Checkboxes */
 
 .search-form__textfield:focus {
   outline: none;
@@ -312,7 +311,7 @@ ol {
   outline-offset: 1px;
 }
 
-/* 4.2 Текстовое поле ввода */
+/* 4.2 Active Checkboxes */
 
 .search-form__checkbox:checked + .search-form__pseudo-checkbox::before {
   content: '';
@@ -323,6 +322,17 @@ ol {
   top: 50%;
   left: 50%;
   transform: translate(-53%, -47%);
+}
+
+/* 4.3 Checkboxes text underline */
+
+.search-form__label-text {
+  text-decoration: none;
+  transition: text-decoration 0.3s;
+}
+
+.search-form__label:hover .search-form__label-text {
+  text-decoration: underline;
 }
 
 /* X. Скрывающий Класс для Работы с Формами */
