@@ -1,0 +1,99 @@
+Algorithm: GetVersionsForKey (Version Based)
+
+Introduction
+The GetVersionsForKey algorithm is designed for blockchain ledgers, facilitating the retrieval of transaction versions for a specified key within a given range. This algorithm is critical for querying historical data, ensuring efficient access and error handling in blockchain databases.
+
+Algorithm Description:
+
+Procedure: GetVersionsForKey(key: String, start: Integer, end: Integer) -> HistoryIterator
+
+Input:
+key: A string identifying the ledger record.
+start: An integer representing the starting version number.
+end: An integer for the ending version number.
+
+Output: Returns a VersionScanner as a HistoryIterator for iterating over specified versions of the key, or an error if the version range is invalid.
+
+Steps:
+1. Validate Version Range: Check if the 'end' version is less than 'start'; if so, return an error indicating an invalid range.
+2. Retrieve Version Count: Access the global index to obtain the number of versions available for the key. If 'start' exceeds this count, return an error.
+3. Construct End Key: Increment the 'end' version number and form an 'endKey' for range queries.
+4. Initialize Database Iterator: Set up a database iterator (dbItr) using the 'startKey' and 'endKey'.
+5. Position Iterator: Move dbItr to the last entry for the specified key.
+6. Retrieve Key: Obtain the key from the current position of dbItr.
+7. Decode Minimum Version: Extract the minimum version number for the block from the current iterator key.
+8. Extract Index Value: Derive the block number and a list of transactions modifying the key from the iterator.
+9. Calculate Last Version Number: Determine the final version number for the current block.
+10. Determine Transaction Index (txIndex): Ascertain txIndex based on whether the 'end' version is within the current block. If 'end' exceeds the last version number, the scanner provides all history from 'start' to the last version.
+11. Create VersionScanner: Instantiate a VersionScanner with necessary parameters for iteration.
+
+Procedure: Next() on VersionScanner
+
+Input: None.
+Output: Returns a QueryResult containing transaction data for the current version, or nil if iteration is complete or invalid.
+
+Steps:
+1. Check if txIndex is initial; if so, adjust the iterator for the first valid transaction.
+2. Return nil if Prev() on the db iterator yields false, indicating no further versions.
+3. Decode the iterator's index value to update the current block and transaction list.
+4. Calculate the current version number using the block's first version and txIndex.
+5. Return nil if the current version is below 'start', indicating no further relevant versions.
+6. Retrieve block and transaction numbers for the current version.
+7. Decrement txIndex for the next iteration.
+8. Fetch transaction details using the block and transaction numbers.
+9. Return the transaction as QueryResult.
+
+This algorithm presents a methodical approach to accessing transaction history in blockchain databases, providing an efficient and error-resilient mechanism for data retrieval.
+
+
+##########################################################
+
+Algorithm: GetVersionsForKey (Block Based Index)
+
+Introduction
+The GetVersionsForKey algorithm, adapted for a Block Based Index, is designed to efficiently retrieve transaction versions of a specific key within a blockchain ledger. This adaptation optimizes the process by utilizing block numbers, thus enhancing performance in accessing historical data.
+
+Algorithm Description
+
+Procedure: GetVersionsForKey(key: String, start: Integer, end: Integer) -> HistoryIterator
+
+Input:
+key: A string identifying the ledger record.
+start: An integer for the starting version number.
+end: An integer for the ending version number.
+
+Output: Returns a VersionScanner as a HistoryIterator for iterating over the specified versions, or an error for invalid range inputs.
+
+Steps:
+1. Validate Version Range: If 'end' is less than 'start', return an error indicating an invalid range.
+2. Initialize Iterator: Set up the LevelDB iterator (dbItr).
+3. Retrieve Latest Block Number: Fetch the block number for the key's most recent history using a constructed GIkey.
+4. Construct Data Key: Formulate a data key for the latest version in the retrieved block number.
+5. Seek Data Key Position: Locate the position of the data key in LevelDB.
+6. Decode Transaction Details: Extract the first version number within the block and the transactions list from the iterator's index value.
+7. Set Transaction Index: Initialize the transaction index (txIndex) to the last transaction in the list.
+8. Instantiate VersionScanner: Create a VersionScanner with the key, iterator, block store reference, current block number, transaction list, transaction index, and version range.
+9. Iterate to Find Block: Loop until locating the block containing the end version, adjusting txIndex accordingly, and returning the scanner.
+
+Procedure: Next() on VersionScanner
+
+Input: None.
+Output: Returns a QueryResult with transaction data for the current version, or nil if iteration is complete or invalid.
+
+Steps:
+1. Calculate the current version number using txIndex and the first version number in the block.
+2. Return nil if the current version is less than 'start'.
+3. Update the block using updateBlock if txIndex is -1.
+4. Return nil if the block number is unchanged after updateBlock, indicating history exhaustion.
+5. Retrieve block and transaction numbers based on the current index.
+6. Prepare for the next iteration by decrementing txIndex.
+7. Fetch and return transaction details as QueryResult.
+
+Procedure: updateBlock() on VersionScanner
+
+Steps:
+1. Decode the previous block number from the index value.
+2. Update the current block number.
+3. Seek the new position in LevelDB using the new block number.
+4. Update the transaction list from the new index value.
+5. Reset txIndex to the last transaction in the updated list.
