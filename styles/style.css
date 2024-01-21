@@ -98,7 +98,7 @@ ol {
   line-height: normal;
 }
 
-/* 2.2.2 Общие стили для text-input и checkbox */
+/* 2.2.2 Общие стили для text-input и checkbox, общий стиль для кнопок */
 
 .search-form__fieldset {
   border: none;
@@ -107,6 +107,19 @@ ol {
   justify-content: flex-start;
   align-items: flex-start;
   gap: 5px;
+}
+
+.button {
+  cursor: pointer;
+  color: #FFF;
+  text-align: center;
+  font-family: "Fira Sans Condensed", sans-serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  background-color: #1B1919;
+  border: 1px solid #fff;
 }
 
 /* 2.2.3 Стили для text-input */
@@ -151,6 +164,13 @@ ol {
   border: 1px solid #fff;
   margin-right: 5px;
   background-color: #1b1919;
+}
+
+/* 2.2.5 Стили для submit кнопки */
+
+.search-form__submit-button {
+  align-self: flex-end;
+  padding: 5px 73px;
 }
 
 /* 3.0 Задаем Details (Правая Часть Внутри Content) */
@@ -260,6 +280,13 @@ ol {
   font-style: normal;
   font-weight: 400;
   line-height: 90%;
+}
+
+/* 3.4 Стили для more кнопки */
+
+.more-button {
+  min-width: 399px;
+  padding: 5px;
 }
 
 /* X. Скрывающий Класс для Работы с Формами */
