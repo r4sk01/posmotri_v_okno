@@ -57,7 +57,6 @@ ol {
 .result {
   display: flex;
   flex-direction: column;
-  /*align-items: flex-end;*/
   padding-top: 78px;
   gap: 16px;
 }
@@ -97,6 +96,62 @@ ol {
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+}
+
+/* 2.2.2 Общие стили для text-input и checkbox */
+
+.search-form__fieldset {
+  border: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 5px;
+}
+
+/* 2.2.3 Стили для text-input */
+
+.search-form__textfield {
+  cursor: pointer;
+  border: none;
+  background: none;
+  border-top: 1px solid #fff;
+  border-bottom: 1px solid #fff;
+  color: rgba(255, 255, 255, 0.70);
+  font-family: "Fira Sans Condensed", sans-serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  min-width: 225px;
+  padding: 1px 0;
+  appearance: none;
+}
+
+/* 2.2.4 Стили для checkbox */
+
+.search-form__checkbox-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 15px;
+  min-width: 212px;
+}
+
+.search-form__label {
+  display: flex;
+  width: fit-content;
+  align-items: center;
+}
+
+.search-form__pseudo-checkbox {
+  cursor: pointer;
+  width: 19px;
+  height: 19px;
+  border: 1px solid #fff;
+  margin-right: 5px;
+  background-color: #1b1919;
+  vertical-align: middle;
 }
 
 /* 3.0 Задаем Details (Правая Часть Внутри Content) */
@@ -206,4 +261,16 @@ ol {
   font-style: normal;
   font-weight: 400;
   line-height: 90%;
+}
+
+/* X. Скрывающий Класс для Работы с Формами */
+
+.visually-hidden {
+  position: absolute;
+  inline-size: 1px;
+  block-size: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
 }
