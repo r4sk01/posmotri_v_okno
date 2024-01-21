@@ -86,6 +86,7 @@ ol {
   justify-content: space-between;
   align-items: flex-start;
   width: 100%;
+  gap: 40px;
 }
 
 /* 2.2.1 Стиль для "Город" и "Время суток" */
@@ -111,7 +112,7 @@ ol {
 
 .button {
   cursor: pointer;
-  color: #FFF;
+  color: #fff;
   text-align: center;
   font-family: "Fira Sans Condensed", sans-serif;
   font-size: 18px;
@@ -170,7 +171,8 @@ ol {
 
 .search-form__submit-button {
   align-self: flex-end;
-  padding: 5px 73px;
+  width: 100%;
+  padding: 5px;
 }
 
 /* 3.0 Задаем Details (Правая Часть Внутри Content) */
@@ -187,6 +189,7 @@ ol {
 
 .content__details .title {
   justify-content: flex-start;
+  width: 100%;
   max-height: 210px;
 }
 
@@ -211,6 +214,7 @@ ol {
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
+  width: 100%;
   max-height: 298px;
   scrollbar-width: none; /* Скрываем Прокрутку Для Firefox */
   -ms-overflow-style: none; /* Скрываем Прокрутку Для Internet Explorer 10+ и Edge */
@@ -223,10 +227,13 @@ ol {
 
 /* 3.3 Задаем Карточки */
 
-/*Нам нужно чтобы карточки встали в 100% ширины родителя <ul>,*/
-/*Поэтому прокидываем 100% во всех родителях*/
-.content__list-item {
+/* Нам нужно чтобы карточки встали в 100% ширины родителя <ul>,*/
+/* Поэтому прокидываем 100% ширины родителя для всех <li> */
+.content__list li {
   width: 100%;
+}
+
+.content__list-item {
   padding: 2px;
 }
 
@@ -285,7 +292,7 @@ ol {
 /* 3.4 Стили для more кнопки */
 
 .more-button {
-  min-width: 399px;
+  width: 100%;
   padding: 5px;
 }
 
