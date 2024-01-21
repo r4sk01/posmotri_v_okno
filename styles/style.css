@@ -161,6 +161,7 @@ ol {
 }
 
 .search-form__pseudo-checkbox {
+  position: relative;
   cursor: pointer;
   width: 19px;
   height: 19px;
@@ -312,6 +313,17 @@ ol {
 }
 
 /* 4.2 Текстовое поле ввода */
+
+.search-form__checkbox:checked + .search-form__pseudo-checkbox::before {
+  content: '';
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  background-color: #fff;
+  top: 50%;
+  left: 50%;
+  transform: translate(-53%, -47%);
+}
 
 /* X. Скрывающий Класс для Работы с Формами */
 
