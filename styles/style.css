@@ -91,7 +91,7 @@ ol {
 
 /* 2.2.1 Стиль для "Город" и "Время суток" */
 
-.search-form__fieldset-title{
+.search-form__fieldset-title {
   font-family: "Fira Sans Condensed", sans-serif;
   font-size: 18px;
   font-style: normal;
@@ -263,7 +263,7 @@ ol {
 }
 
 /*Занимаем Текстом все оставшееся пространство в карточке*/
-.content__video-card-description-container{
+.content__video-card-description-container {
   flex-grow: 1;
 }
 
