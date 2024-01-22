@@ -126,7 +126,7 @@ ol {
 /* 2.2.3 Стили для text-input */
 
 .search-form__textfield {
-  cursor: pointer;
+  cursor: text;
   border: none;
   background: none;
   border-top: 1px solid #fff;
@@ -326,7 +326,7 @@ li:has(> .more-button) {
   background-color: #fff;
   top: 50%;
   left: 50%;
-  transform: translate(-53%, -47%);
+  transform: translate(-50%, -50%);
 }
 
 /* 4.3 Checkboxes text underline */
@@ -380,6 +380,16 @@ li:has(> .more-button) {
 
 .content__card-link:hover {
   text-decoration: underline;
+}
+
+.content__card-link:hover .content__video-card-title {
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+}
+
+.content__card-link:hover .content__video-card-description {
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
 }
 
 /* X. Скрывающий Класс для Работы с Формами */
