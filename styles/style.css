@@ -182,9 +182,9 @@ ol {
 .content__details {
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
   gap: 26px;
   min-width: 399px;
+  height: 100%;
 }
 
 /* 3.1 Задаем Title */
@@ -259,6 +259,9 @@ ol {
 
 /*Занимаем Текстом все оставшееся пространство в карточке*/
 .content__video-card-description-container {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
   flex-grow: 1;
 }
 
