@@ -167,7 +167,11 @@ ol {
   border: 1px solid #fff;
   margin-right: 5px;
   background-color: #1b1919;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+
 
 /* 2.2.5 Стили для submit кнопки */
 
@@ -320,13 +324,9 @@ li:has(> .more-button) {
 
 .search-form__checkbox:checked + .search-form__pseudo-checkbox::before {
   content: '';
-  position: absolute;
   width: 15px;
   height: 15px;
   background-color: #fff;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
 }
 
 /* 4.3 Checkboxes text underline */
