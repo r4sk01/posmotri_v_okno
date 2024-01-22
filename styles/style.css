@@ -255,10 +255,8 @@ ol {
   width: 194px;
   height: 103px;
   object-fit: cover;
-  padding-top: 2px;
-  padding-bottom: 2px;
-  padding-right: 2px;
   flex-shrink: 0;
+  padding: 2px 2px 2px 0;
 }
 
 /*Занимаем Текстом все оставшееся пространство в карточке*/
