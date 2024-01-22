@@ -266,6 +266,7 @@ ol {
   display: flex;
   flex-direction: column;
   gap: 6px;
+  max-width: 200px;
   flex-grow: 1;
 }
 
@@ -285,6 +286,7 @@ ol {
   font-weight: 700;
   line-height: 100%; /* 30px */
   text-transform: uppercase;
+  width: inherit;
 }
 
 .content__video-card-description {
@@ -293,6 +295,8 @@ ol {
   font-style: normal;
   font-weight: 400;
   line-height: 90%;
+  width: inherit;
+  min-height: 65px;
 }
 
 /* 3.4 Стили для more кнопки */
@@ -378,18 +382,18 @@ li:has(> .more-button) {
   background: #545050;
 }
 
-.content__card-link:hover {
+.content__card-link:hover .content__video-card-title,
+.content__card-link:hover .content__video-card-description{
   text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
 .content__card-link:hover .content__video-card-title {
   text-decoration-thickness: 2px;
-  text-underline-offset: 4px;
 }
 
 .content__card-link:hover .content__video-card-description {
   text-decoration-thickness: 1px;
-  text-underline-offset: 2px;
 }
 
 /* X. Скрывающий Класс для Работы с Формами */
