@@ -117,8 +117,8 @@ ol {
   font-style: normal;
   font-weight: 700;
   line-height: normal;
-  background-color: #1B1919;
-  border: 1px solid #fff;
+  background-color: transparent;
+  border: 1px solid currentColor;
 }
 
 /* 2.2.3 Стили для text-input */
