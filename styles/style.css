@@ -219,13 +219,7 @@ ol {
   flex-direction: column;
   width: 100%;
   height: 298px;
-  scrollbar-width: none; /* Скрываем Прокрутку Для Firefox */
-  -ms-overflow-style: none; /* Скрываем Прокрутку Для Internet Explorer 10+ и Edge */
   position: relative;
-}
-
-.content__list::-webkit-scrollbar {
-  display: none; /* Скрываем Прокрутку Для WebKit-браузеров, таких как Chrome и Safari */
 }
 
 /* 3.3 Задаем Карточки */
