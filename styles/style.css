@@ -262,7 +262,7 @@ ol {
   flex-direction: column;
   gap: 6px;
   max-width: 200px;
-  max-height: 103px;
+  min-height: 103px;
   flex-grow: 1;
 }
 
