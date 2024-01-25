@@ -294,7 +294,7 @@ ol {
   font-style: normal;
   font-weight: 400;
   line-height: 90%;
-  width: inherit;
+  max-width: 200px;
 }
 
 /* 3.4 Стили для more кнопки */
