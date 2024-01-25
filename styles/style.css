@@ -195,7 +195,7 @@ ol {
 .content__details .title {
   justify-content: flex-start;
   width: 100%;
-  max-height: 210px;
+  min-height: 210px;
 }
 
 .title {
