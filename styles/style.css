@@ -44,7 +44,6 @@ ol {
 
 .content {
   display: flex;
-  max-width: 1140px;
   flex-direction: row;
   align-items: flex-end;
   gap: 30px;
@@ -55,8 +54,9 @@ ol {
 .result {
   display: flex;
   flex-direction: column;
-  padding-top: 78px;
+  align-items: flex-start;
   gap: 16px;
+  padding-bottom: 3px;
 }
 
 /* 2.1 Задаем Контейнер Для Видео */
@@ -65,7 +65,6 @@ ol {
   position: relative;
   width: 711px;
   height: 386px;
-  overflow: hidden;
 }
 
 /* 2.1.1 Растягиваем Видео Под Контейнер */
@@ -74,6 +73,7 @@ ol {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center;
 }
 
 /* 2.2 Задаем Форму */
@@ -97,7 +97,7 @@ ol {
   line-height: normal;
 }
 
-/* 2.2.2 Общие стили для text-input и checkbox, общий стиль для кнопок */
+/* 2.2.2 Общие стили для text-input и checkbox, стили для кнопок */
 
 .search-form__fieldset {
   border: none;
@@ -109,9 +109,10 @@ ol {
 }
 
 .button {
+  text-align: center;
   cursor: pointer;
   color: #fff;
-  text-align: center;
+  height: 34px;
   font-family: "Fira Sans Condensed", sans-serif;
   font-size: 18px;
   font-style: normal;
@@ -119,6 +120,10 @@ ol {
   line-height: normal;
   background-color: transparent;
   border: 1px solid currentColor;
+}
+
+.more-button {
+  width: 100%;
 }
 
 /* 2.2.3 Стили для text-input */
@@ -177,7 +182,6 @@ ol {
 .search-form__submit-button {
   align-self: flex-end;
   width: 100%;
-  padding: 5px;
 }
 
 /* 3.0 Задаем Details (Правая Часть Внутри Content) */
@@ -186,17 +190,10 @@ ol {
   display: flex;
   flex-direction: column;
   gap: 26px;
-  min-width: 399px;
-  height: 100%;
+  flex-grow: 1;
 }
 
 /* 3.1 Задаем Title */
-
-.content__details .title {
-  justify-content: flex-start;
-  width: 100%;
-  min-height: 210px;
-}
 
 .title {
   font-family: Oswald, sans-serif;
@@ -217,61 +214,41 @@ ol {
   overflow-y: auto;
   display: flex;
   flex-direction: column;
-  width: 100%;
   height: 298px;
+  /*Если не задавать 419px то в FIREFOX будет горизонтальный скрол, при этом в SAFARI, CHROME его нет*/
+  width: 419px;
   position: relative;
+  padding: 0 3px 3px 3px;
 }
 
 /* 3.3 Задаем Карточки */
 
-/* Нам нужно чтобы карточки встали в 100% ширины родителя <ul>,*/
-/* Поэтому прокидываем 100% ширины родителя для всех <li> */
-.content__list li {
-  width: 100%;
-}
-
 .content__list-item {
-  max-width: 398px;
-  min-height: 107px;
+  min-width: 398px;
 }
 
-.content__list-item:not(:first-child) {
-  margin-top: 30px;
+.content__list-item:not(:last-child) {
+  margin-bottom: 30px;
 }
 
 .content__video-card {
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: flex-start;
-  width: 100%;
 }
 
-.content__video-card-thumbnail {
-  width: 194px;
-  height: 103px;
-  object-fit: cover;
-  object-position: center;
-  flex-shrink: 0;
-  align-self: end;
-}
-
-/*Занимаем Текстом все оставшееся пространство в карточке*/
 .content__video-card-description-container {
   display: flex;
   flex-direction: column;
   gap: 6px;
   max-width: 199px;
-  min-height: 103px;
-  flex-grow: 1;
 }
-
-/* 3.3.1 Задаем Cтили Тексту Карточки */
 
 .content__card-link {
   display: block;
   text-decoration: none;
-  color: #FFF;
+  color: #fff;
   margin: 2px;
 }
 
@@ -282,7 +259,7 @@ ol {
   font-weight: 700;
   line-height: 100%; /* 30px */
   text-transform: uppercase;
-  max-width: 199px;
+  max-width: inherit;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -294,20 +271,14 @@ ol {
   font-style: normal;
   font-weight: 400;
   line-height: 90%;
-  max-width: 199px;
+  max-width: inherit;
 }
 
-/* 3.4 Стили для more кнопки */
-
-li:has(> .more-button) {
-  margin-top: 30px;
-  padding: 3px;
-}
-
-.more-button {
-  width: 100%;
-  padding-top: 5px;
-  padding-bottom: 5px;
+.content__video-card-thumbnail {
+  width: 194px;
+  height: 103px;
+  object-fit: cover;
+  object-position: center;
 }
 
 /* 4.0 Состояния элементов формы и кнопок */
@@ -369,7 +340,7 @@ li:has(> .more-button) {
 }
 
 .content__card-link:focus {
-  outline: 0;
+  outline: none;
 }
 
 .content__card-link:focus-visible {
@@ -393,8 +364,6 @@ li:has(> .more-button) {
 .content__card-link:hover .content__video-card-description {
   text-decoration-thickness: 1px;
 }
-
-/* X. Скрывающий Класс для Работы с Формами */
 
 .visually-hidden {
   position: absolute;

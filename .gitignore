@@ -1,1 +1,4 @@
 algo.txt
+.DS_Store
+.idea/
+*.txt
