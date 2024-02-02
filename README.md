@@ -17,8 +17,7 @@
 - `fonts/`: Directory for fonts.
 - `styles/`: Directory for stylesheets (CSS), including main styles, preloader styles, and error styles.
 - `scripts/`: JavaScript files for the project.
-- `templates/`: HTML templates for dynamic content (preloader, video cards, "Show More" button, error block).
-
+  
 ## Installation and Launch
 
 ## Setup
@@ -47,7 +46,7 @@ Contributions are what make the open-source community such an amazing place to l
 
 ## License
 
-Distributed under the MIT License. See LICENSE for more information.
+Distributed under the MIT License.
 
 ## Contact
 
